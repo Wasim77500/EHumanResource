@@ -1,115 +1,102 @@
-CREATE TABLE `branches` (
-  `pkid` int(11) NOT NULL,
-  `stat` varchar(40) DEFAULT NULL,
-  `created_date` date DEFAULT NULL,
-  `created_user` int(11) DEFAULT NULL,
-  `Branch_no` int(11) DEFAULT NULL,
-  `Branch_name` varchar(100) DEFAULT NULL,
-  `notes` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`pkid`),
-  KEY `branch_user_fk_idx` (`created_user`),
-  CONSTRAINT `branch_user_fk` FOREIGN KEY (`created_user`) REFERENCES `users` (`pkid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `users` (
-  `pkid` int(11) NOT NULL,
-  `stat` varchar(40) DEFAULT NULL,
-  `created_date` date DEFAULT NULL,
-  `created_user` int(11) DEFAULT NULL,
-  `UserLoginName` varchar(150) NOT NULL,
-  `userLoginEncry` varchar(150) DEFAULT NULL,
-  `UserFullName` varchar(45) DEFAULT NULL,
-  `password` varchar(150) DEFAULT NULL,
-  `Notes` varchar(100) DEFAULT NULL,
-  `branch_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`pkid`),
-  KEY `Users_branch_fk_idx` (`branch_id`),
-  CONSTRAINT `Users_branch_fk` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`pkid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `list_type` (
-  `PKID` int(11) NOT NULL,
-  `LIST_NAME` varchar(100) DEFAULT NULL,
-  `SELECT_STATEMENT` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`PKID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `forms_hd` (
-  `PKID` int(11) NOT NULL,
-  `AR_NAME` varchar(145) DEFAULT NULL,
-  `EN_NAME` varchar(145) DEFAULT NULL,
-  `MULTI_FORM_FOR_USER` char(1) DEFAULT NULL,
-  `FORM_TYPE_EN` varchar(128) DEFAULT NULL,
-  `FORM_TYPE_AR` varchar(128) DEFAULT NULL,
-  PRIMARY KEY (`PKID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `forms_de` (
-  `PKID` int(11) NOT NULL,
-  `HEADER_ID` int(11) DEFAULT NULL,
-  `CONTROL_TYPE` varchar(100) DEFAULT NULL,
-  `EN_NAME` varchar(200) DEFAULT NULL,
-  `AR_NAME` varchar(200) DEFAULT NULL,
-  `LIST_ID` int(11) DEFAULT NULL,
-  `FREE_LIST_NAME` varchar(100) DEFAULT NULL,
-  `PROPERITY_NOTE` varchar(300) DEFAULT NULL,
-  PRIMARY KEY (`PKID`),
-  KEY `Form_de_Form_hd_fk_idx` (`HEADER_ID`),
-  CONSTRAINT `Form_de_Form_hd_fk` FOREIGN KEY (`HEADER_ID`) REFERENCES `forms_hd` (`PKID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE `templet_header` (
-  `PKID` int(11) NOT NULL,
-  `CREATED_USER` int(11) DEFAULT NULL,
-  `CREATED_DATE` date DEFAULT NULL,
-  `TEMPLET_NAME` varchar(100) DEFAULT NULL,
-  `FORM_ENG_NAME` varchar(100) DEFAULT NULL,
-  `FORM_ARABIC_NAME` varchar(100) DEFAULT NULL,
-  `MULTI_FORM_FOR_USER` char(1) DEFAULT NULL,
-  `FORM_TYPE_EN` varchar(45) DEFAULT NULL,
-  `FORM_TYPE_AR` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`PKID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE hr_user (
+  pkid number NOT NULL,
+  stat nvarchar2(40) DEFAULT NULL,
+  created_date date DEFAULT NULL,
+  created_user number DEFAULT NULL,
+  UserLoginName nvarchar2(150) NOT NULL,
+  userLoginEncry nvarchar2(150) DEFAULT NULL,
+  UserFullName nvarchar2(45) DEFAULT NULL,
+  password nvarchar2(150) DEFAULT NULL,
+  Notes nvarchar2(100) DEFAULT NULL,
+  branch_id number DEFAULT NULL,
+  PRIMARY KEY (pkid)
+ 
+  
+) ;
+
+CREATE TABLE hr_list_type (
+  PKID number NOT NULL,
+  LIST_NAME nvarchar2(100) DEFAULT NULL,
+  SELECT_STATEMENT nvarchar2(100) DEFAULT NULL,
+  PRIMARY KEY (PKID)
+) ;
+
+CREATE TABLE hr_forms_hd (
+  PKID number NOT NULL,
+  AR_NAME nvarchar2(145) DEFAULT NULL,
+  EN_NAME nvarchar2(145) DEFAULT NULL,
+  MULTI_FORM_FOR_USER char(1) DEFAULT NULL,
+  FORM_TYPE_EN nvarchar2(128) DEFAULT NULL,
+  FORM_TYPE_AR nvarchar2(128) DEFAULT NULL,
+  PRIMARY KEY (PKID)
+) ;
+
+CREATE TABLE hr_forms_de (
+  PKID number NOT NULL,
+  HEADER_ID number DEFAULT NULL,
+  CONTROL_TYPE nvarchar2(100) DEFAULT NULL,
+  EN_NAME nvarchar2(200) DEFAULT NULL,
+  AR_NAME nvarchar2(200) DEFAULT NULL,
+  LIST_ID number DEFAULT NULL,
+  FREE_LIST_NAME nvarchar2(100) DEFAULT NULL,
+  PROPERITY_NOTE nvarchar2(300) DEFAULT NULL,
+  PRIMARY KEY (PKID),
+  CONSTRAINT Form_de_Form_hd_fk FOREIGN KEY (HEADER_ID) REFERENCES hr_forms_hd (PKID)
+) ;
 
 
-CREATE TABLE `templet_details` (
-  `PKID` int(11) NOT NULL,
-  `HEADER_ID` int(11) DEFAULT NULL,
-  `CONTROL_TYPE` varchar(100) DEFAULT NULL,
-  `EN_NAME` varchar(100) DEFAULT NULL,
-  `AR_NAME` varchar(100) DEFAULT NULL,
-  `CONTROL_VALUE` varchar(1000) DEFAULT NULL,
-  `CREATED_USER` int(11) DEFAULT NULL,
-  `CREATED_DATE` date DEFAULT NULL,
-  `REAL_VALUE` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`PKID`),
-  KEY `template_details_fk_idx` (`HEADER_ID`),
-  CONSTRAINT `template_details_fk` FOREIGN KEY (`HEADER_ID`) REFERENCES `templet_header` (`PKID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE hr_templet_header (
+  PKID number NOT NULL,
+  CREATED_USER number DEFAULT NULL,
+  CREATED_DATE date DEFAULT NULL,
+  TEMPLET_NAME nvarchar2(100) DEFAULT NULL,
+  FORM_ENG_NAME nvarchar2(100) DEFAULT NULL,
+  FORM_ARABIC_NAME nvarchar2(100) DEFAULT NULL,
+  MULTI_FORM_FOR_USER char(1) DEFAULT NULL,
+  FORM_TYPE_EN nvarchar2(45) DEFAULT NULL,
+  FORM_TYPE_AR nvarchar2(45) DEFAULT NULL,
+  PRIMARY KEY (PKID)
+) ;
 
 
-CREATE TABLE `user_templet` (
-  `PKID` int(11) NOT NULL,
-  `USER_ID` int(11) DEFAULT NULL,
-  `TEMPLET_ID` int(11) DEFAULT NULL,
-  PRIMARY KEY (`PKID`),
-  KEY `UserTemp_user_Pk_idx` (`USER_ID`),
-  KEY `UserTemp_templateHD_fk_idx` (`TEMPLET_ID`),
-  CONSTRAINT `UserTemp_templateHD_fk` FOREIGN KEY (`TEMPLET_ID`) REFERENCES `templet_header` (`PKID`),
-  CONSTRAINT `UserTemp_user_Pk` FOREIGN KEY (`USER_ID`) REFERENCES `users` (`pkid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE hr_templet_details (
+  PKID number NOT NULL,
+  HEADER_ID number DEFAULT NULL,
+  CONTROL_TYPE nvarchar2(100) DEFAULT NULL,
+  EN_NAME nvarchar2(100) DEFAULT NULL,
+  AR_NAME nvarchar2(100) DEFAULT NULL,
+  CONTROL_VALUE nvarchar2(1000) DEFAULT NULL,
+  CREATED_USER number DEFAULT NULL,
+  CREATED_DATE date DEFAULT NULL,
+  REAL_VALUE nvarchar2(45) DEFAULT NULL,
+  PRIMARY KEY (PKID),
+ 
+  CONSTRAINT template_details_fk FOREIGN KEY (HEADER_ID) REFERENCES HR_templet_header (PKID)
+) ;
 
 
-CREATE TABLE `updatehistory` (
-  `pk` int(11) NOT NULL,
-  `created_user` int(11) DEFAULT NULL,
-  `Created_date` date DEFAULT NULL,
-  `TABLE_NAME` varchar(100) DEFAULT NULL,
-  `COLUMN_NAME` varchar(100) DEFAULT NULL,
-  `ROW_PKID` int(11) DEFAULT NULL,
-  `OLD_VALUE` varchar(1000) DEFAULT NULL,
-  `New_value` varchar(1000) DEFAULT NULL,
-  `ARABIC_NAME` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`pk`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE hr_user_templet (
+  PKID number NOT NULL,
+  USER_ID number DEFAULT NULL,
+  TEMPLET_ID number DEFAULT NULL,
+  PRIMARY KEY (PKID),
+
+  CONSTRAINT UserTemp_templateHD_fk FOREIGN KEY (TEMPLET_ID) REFERENCES hr_templet_header (PKID),
+  CONSTRAINT UserTemp_user_Pk FOREIGN KEY (USER_ID) REFERENCES HR_user (pkid)
+) ;
+
+
+CREATE TABLE hr_updatehistory (
+  pk number NOT NULL,
+  created_user number DEFAULT NULL,
+  Created_date date DEFAULT NULL,
+  TABLE_NAME nvarchar2(100) DEFAULT NULL,
+  COLUMN_NAME nvarchar2(100) DEFAULT NULL,
+  ROW_PKID number DEFAULT NULL,
+  OLD_VALUE nvarchar2(1000) DEFAULT NULL,
+  New_value nvarchar2(1000) DEFAULT NULL,
+  ARABIC_NAME nvarchar2(200) DEFAULT NULL,
+  PRIMARY KEY (pk)
+) ;
