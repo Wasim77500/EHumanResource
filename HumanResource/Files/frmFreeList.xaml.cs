@@ -54,6 +54,7 @@ namespace HumanResource.Files
             // string text= ((sender as ComboBox).SelectedItem as ComboBoxItem).Content as string; 
             //  string text = lstLIST_NAME.Text;
             string text = lstLIST_NAME.Items[lstLIST_NAME.Items.IndexOf(lstLIST_NAME.SelectedItem)].ToString();
+           
             if (text != "")
             {
 

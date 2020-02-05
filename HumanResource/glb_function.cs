@@ -21,15 +21,34 @@ namespace HumanResource
          //when program statr
      internal static string glb_strUserId="" ;
 	 internal static string glb_strUserName ="";
-     internal static string glb_strBranchPkid = "";
+	 internal static string glb_strUserGroup ="";
+	 internal static string glb_strUserMenu="" ;
 
-        internal static bool blMsg;
+	
+	
+	
+  
+   
+     internal static string glb_FormType = "";
+
+     internal static string strTemp = "";
+      
+         //**************************
+
+    
+     internal static string glb_PartNumber = "";
+     internal static string glb_PartFamily = "";
+    
+    
+
+    
+     internal static bool blMsg;
     
    
 
-    
+        internal static string glb_strBranchPkid;
 
-      
+       
          
        internal static void  MoveCursor(Control c)
         {
@@ -57,23 +76,29 @@ namespace HumanResource
                 }
                 else if (childVisual.GetType() == typeof(ComboBox))
                 {
-                    ((ComboBox)childVisual).ItemsSource = null;
+                   // ((ComboBox)childVisual).ItemsSource = null;
                     ((ComboBox)childVisual).SelectedIndex = -1;
                 }
                 else if (childVisual.GetType() == typeof(DataGrid))
                 {
                     ((DataGrid)childVisual).Items.Clear();
                 }
-                else if (childVisual.GetType() == typeof(Xceed.Wpf.Toolkit.IntegerUpDown))
+                else if(childVisual.GetType() == typeof(IntegerUpDown))
                 {
-                    ((Xceed.Wpf.Toolkit.IntegerUpDown)childVisual).Value = 0;
+                    ((IntegerUpDown)childVisual).Value = 0;
+                    
+                }
+                else if (childVisual.GetType() == typeof(DoubleUpDown))
+                {
+                    ((DoubleUpDown)childVisual).Value = 0;
+                    
                 }
                 else
              
                 clearItems(childVisual);
             }
         }
-   
+    
 
 
         internal static void MsgBox(string strMsg)
@@ -169,13 +194,13 @@ namespace HumanResource
             return strReturnValue;
         }
 
-        internal static string GetCellValueControl(ref DataGrid Grid1, string strControl, int iColumn, int iRow)
+        internal static string GetCellValueControl(ref DataGrid Grid1,string strControl, int iColumn, int iRow)
         {
-            string strReturnValue = "";
+            string strReturnValue="";
             DataGridRow row = Grid1.ItemContainerGenerator.ContainerFromIndex(iRow) as DataGridRow;
             ContentPresenter CP = Grid1.Columns[iColumn].GetCellContent(row) as ContentPresenter;
-
-            if (strControl == "Date")
+           
+            if(strControl =="Date")
             {
                 DatePicker DP = FindVisualChild<DatePicker>(CP);
                 if (DP != null)
@@ -229,33 +254,6 @@ namespace HumanResource
             }
             return null;
         }
-        private static T FindParent<T>(DependencyObject dependencyObject) where T : DependencyObject
-        {
-            var parent = VisualTreeHelper.GetParent(dependencyObject);
-
-            if (parent == null) return null;
-
-            var parentT = parent as T;
-            return parentT ?? FindParent<T>(parent);
-        }
-
-        public static bool UpdateHistory(string strTableName, string strColName, string strPkid, string strOldValue, string strNewValue, string strColArName)
-        {
-            ConnectionToDB cnn = new ConnectionToDB();
-            int icheck = 0;
-            // insert into sales.USER_TEMPLET values((select ifnull(max(b.pkid),0)+1 from sales.USER_TEMPLET b),
-
-            icheck = cnn.TranDataToDB("insert into HR_updatehistory values((select ifnull(max(b.pk),0)+1 from HR_updatehistory b)," + glb_function.glb_strUserId + ",sysdate(),'" + strTableName + "','" + strColName + "'," + strPkid + ",'" + strOldValue + "','" + strNewValue + "','" + strColArName + "')");
-
-            if (icheck <= 0)
-                return false;
-
-
-            cnn.glb_commitTransaction();
-            return true;
-
-        }
-
 
     }
 

@@ -72,6 +72,21 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ConnectionToDB.cs" />
+    <Compile Include="Employees\frmEmployee.xaml.cs">
+      <DependentUpon>frmEmployee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\frmEmpFinicialInfo.xaml.cs">
+      <DependentUpon>frmEmpFinicialInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\frmPersonalAddressInfo.xaml.cs">
+      <DependentUpon>frmPersonalAddressInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\frmAppointmentInfo.xaml.cs">
+      <DependentUpon>frmAppointmentInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\frmNotYamani.xaml.cs">
+      <DependentUpon>frmNotYamani.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Files\frmFindUser.xaml.cs">
       <DependentUpon>frmFindUser.xaml</DependentUpon>
     </Compile>
@@ -107,6 +122,26 @@
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
+    <Page Include="Employees\frmEmployee.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Employees\frmEmpFinicialInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Employees\frmPersonalAddressInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Employees\frmAppointmentInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Employees\frmNotYamani.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Files\frmUsers.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

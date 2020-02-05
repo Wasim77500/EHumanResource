@@ -111,7 +111,7 @@ namespace HumanResource.Files
             while (strSelectedTemp != "")
             {
                 string strTemp = strSelectedTemp.Substring(0, strSelectedTemp.IndexOf(';'));
-                icheck = cnnSave.TranDataToDB("insert into HR_USER_TEMPLET values ((select ifnull(max(b.pkid),0)+1 from HR_USER_TEMPLET b), " + txtPkid.Text + "," + strTemp + ")");
+                icheck = cnnSave.TranDataToDB("insert into HR_USER_TEMPLET values ((select nvl(max(b.pkid),0)+1 from HR_USER_TEMPLET b), " + txtPkid.Text + "," + strTemp + ")");
 
                 if (icheck <= 0)
                 {
@@ -125,7 +125,7 @@ namespace HumanResource.Files
 
             cnnSave.glb_commitTransaction();
             glb_function.MsgBox("تمت العملية بنجاح");
-            UpdateHistory();
+           
 
             GetData(txtPkid.Text);
 
@@ -494,40 +494,6 @@ namespace HumanResource.Files
             }
         }
 
-        private void UpdateHistory()
-        {
-
-
-            if (txtPkid.Text != dtUserData.Rows[0]["pkid"].ToString())
-            {
-                glb_function.MsgBox("الرجاء التأكد من عملية التحديث");
-                return;
-            }
-            bool bCheckUpdateHistory = true;
-            // insert into sales.USER_TEMPLET values((select ifnull(max(b.pkid),0)+1 from sales.USER_TEMPLET b),
-            if (txtUserName.Text.Trim() != dtUserData.Rows[0]["UserFullName"].ToString().Trim())
-                if (!glb_function.UpdateHistory("users", "UserFullName", txtPkid.Text, dtUserData.Rows[0]["UserFullName"].ToString().Trim(), txtUserName.Text.Trim(), "اسم المستخدم"))
-                    bCheckUpdateHistory = false;
-
-
-
-            if (txtUserLogin.Text.Trim() != dtUserData.Rows[0]["userloginname"].ToString().Trim())
-                if (!glb_function.UpdateHistory("users", "userloginname", txtPkid.Text, dtUserData.Rows[0]["userloginname"].ToString().Trim(), txtUserLogin.Text.Trim(), "اسم الدخول"))
-                    bCheckUpdateHistory = false;
-
-            if (txtNote.Text.Trim() != dtUserData.Rows[0]["notes"].ToString())
-                if (!glb_function.UpdateHistory("users", "notes", txtPkid.Text, dtUserData.Rows[0]["notes"].ToString().Trim(), txtNote.Text.Trim(), "ملاحظات"))
-                    bCheckUpdateHistory = false;
-
-            if (lstBranches.SelectedValue.ToString() != dtUserData.Rows[0]["branch_id"].ToString())
-                if (!glb_function.UpdateHistory("users", "branch_id", txtPkid.Text, dtUserData.Rows[0]["branch_id"].ToString().Trim(), lstBranches.SelectedValue.ToString().Trim(), "الفرع"))
-                    bCheckUpdateHistory = false;
-
-
-
-            if (bCheckUpdateHistory == false)
-                glb_function.MsgBox("حدث خطأ عند ادخال التعديل الى بيانات التتبع");
-
-        }
+       
     }
 }

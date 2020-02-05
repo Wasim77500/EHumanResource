@@ -1,0 +1,278 @@
+﻿<Window x:Class="HumanResource.Employees.frmAppointmentInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HumanResource"
+          xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"  AllowsTransparency="True"
+        WindowStyle="None"
+        Background="#F5F5DD"
+        Title="بيانات التعيين والخبرات" Height="360" Width="600" 
+        BorderBrush="#0b353e" 
+        BorderThickness="3,0,3,3" 
+        WindowStartupLocation="CenterScreen"  
+        FlowDirection="RightToLeft"
+        Loaded="Window_Loaded"
+        >
+    <StackPanel>
+        <Grid Height="30" MouseDown="Grid_MouseDown" Background="#0b353e">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="1*"/>
+
+
+            </Grid.ColumnDefinitions>
+            <Image Source="../Images/Logo.png" Width="24" Grid.Column="0" MouseDown="Image_MouseDown_1">
+
+
+            </Image>
+
+            <TextBlock x:Name="txtTitel"  Text="بيانات التعيين والخبرات" Grid.Column="1" TextAlignment="Center"  Foreground="#C46210" HorizontalAlignment="Stretch" VerticalAlignment="Center"  FontWeight="Bold" FontFamily="Arial" FontSize="16"  />
+
+
+
+            <Image Source="../Images/Delete.png" Width="24" Grid.Column="2"  Cursor="Hand" MouseDown="Image_MouseDown"></Image>
+        </Grid>
+
+        <GroupBox Header="بيانات الضمان" 
+                  
+                  Style="{StaticResource myGroupBox}">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" 
+                            Margin="0 0 0 5" 
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            >
+                    <TextBlock Style="{StaticResource myLable}"
+                               
+                             Margin="10 0 0 0"
+                               Width="100" 
+                             Text="نوع الضمانة"   
+                            />
+                    <TextBox Name="txtINSURANCE_TYPE"
+                             Width="180"
+                             Height="24"
+                            />
+                    <TextBlock Style="{StaticResource myLable}"                              
+                            Margin="10 0 10 0"   Width="100" 
+                             Text="اسم الضمين"   
+                             />
+
+                    <TextBox Name="txtGUARANTOR_NAME"
+                             Width="150"
+                             Height="24"
+                                         
+                            />
+                </StackPanel>
+
+
+
+                <StackPanel Orientation="Horizontal" 
+                            Margin="0 0 0 5" 
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            >
+                    <TextBlock Style="{StaticResource myLable}"
+                               
+                             Margin="10 0 0 0"
+                               Width="100" 
+                             Text="الاسم التجاري"   
+                            />
+                    <TextBox Name="txtGUARANTOR_TRADER_NAME"
+                             Width="180"
+                             Height="24"
+                            />
+                    <TextBlock Style="{StaticResource myLable}"                              
+                            Margin="10 0 10 0"   Width="100" 
+                             Text="العنوان"   
+                             />
+
+                    <TextBox Name="txtGUARANTOR_ADDRESS"
+                             Width="150"
+                             Height="24"
+                            />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" 
+                            Margin="0 0 0 5" 
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            >
+                    <TextBlock Style="{StaticResource myLable}"
+                               
+                             Margin="10 0 0 0"
+                               Width="100" 
+                             Text="رقم التلفون"   
+                            />
+                    <TextBox Name="txtGUARANTOR_PHONE"
+                             Width="180"
+                             Height="24"
+                            />
+                    <TextBlock Style="{StaticResource myLable}"                              
+                            Margin="10 0 10 0"   Width="100" 
+                             Text="رقم الجوال"   
+                             />
+
+                    <TextBox Name="txtGUARANTOR_CELLPHONE"
+                             Width="150"
+                             Height="24"
+                            />
+                </StackPanel>
+
+
+                <StackPanel Orientation="Horizontal" 
+                            Margin="11 0 0 5" 
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            >
+                    <TextBlock Style="{StaticResource myLable}"
+                               
+                             Margin="10 0 0 0"
+                               Width="100" 
+                             Text="تاريخ الصلاحية"   
+                            />
+                    <DatePicker Name="dtpINSURANCE_DATE"
+                             Width="180"
+                             Height="24"
+                            />
+                  
+                </StackPanel>
+                
+                
+
+            </StackPanel>
+
+
+
+        </GroupBox>
+        <GroupBox Header="الخبرات" 
+                  
+                  Style="{StaticResource myGroupBox}">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" 
+                            Margin="0 0 0 5" 
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            >
+                    <TextBlock Style="{StaticResource myLable}"
+                               
+                             Margin="10 0 0 0"
+                               Width="100" 
+                             Text="التخصص"   
+                            />
+                    <TextBox Name="txtSPECIALIZATION"
+                             Width="180"
+                             Height="24"
+                            />
+                    <TextBlock Style="{StaticResource myLable}"                              
+                            Margin="10 0 10 0"   Width="100" 
+                             Text="المؤهلات"   
+                             />
+
+                    <TextBox Name="txtQUALIFICATIONS"
+                             Width="150"
+                             Height="24"
+                                         
+                            />
+                </StackPanel>
+
+
+
+                <StackPanel Orientation="Horizontal" 
+                            Margin="11 0 0 5" 
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            >
+                    <TextBlock Style="{StaticResource myLable}"
+                               
+                             Margin="10 0 0 0"
+                               Width="100" 
+                             Text="خبرات العمل"   
+                            />
+                    <TextBox Name="txtJOB_EXPERIENCE"
+                             Width="180"
+                             Height="24"
+                            />
+                  
+                </StackPanel>
+             
+           
+
+
+
+            </StackPanel>
+
+
+
+        </GroupBox>
+
+        <GroupBox Header="التعيين" 
+                  
+                  Style="{StaticResource myGroupBox}">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" 
+                            Margin="0 0 0 5" 
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            >
+                    <TextBlock Style="{StaticResource myLable}"
+                               
+                             Margin="10 0 0 0"
+                               Width="100" 
+                             Text="تاريخ التعيين"   
+                            />
+                    <DatePicker Name="dtpDATE_APPOINTMENT"
+                             Width="180"
+                             Height="24"
+                            />
+                    <TextBlock Style="{StaticResource myLable}"                              
+                            Margin="10 0 10 0"   Width="100" 
+                             Text="الراتب عند التعيين"   
+                             />
+
+                    <xctk:DoubleUpDown    FormatString="N0" FontWeight="Normal"  Name="nmbBASIC_SAL_APPOINTMENT" TabIndex="30" FlowDirection="RightToLeft"   Value="0" Height="24"  Width="150"  Minimum="0"  DefaultValue="0" />
+
+
+                    
+                </StackPanel>
+
+
+
+               
+
+
+
+
+
+            </StackPanel>
+
+
+
+        </GroupBox>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 1 0">
+
+            <Button x:Name="btnSave"
+                     Style="{StaticResource BlkOrngBut}" 
+                    Content="حفظ"
+                    Margin="0 0 1 0"
+                   
+                    Click="btnSave_Click">
+
+
+
+            </Button>
+            <Button Name="btnClose" 
+                    Style="{StaticResource BlkOrngBut}" 
+                      Content="خروج"
+                   Margin="0 0 1 0"
+                    Click="btnClose_Click">
+
+            </Button>
+        </StackPanel>
+
+
+    </StackPanel>
+   
+</Window>

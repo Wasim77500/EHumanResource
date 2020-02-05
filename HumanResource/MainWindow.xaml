@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HumanResource"
         mc:Ignorable="d"
-       Title="البرنامج المحاسبي  " Height="500" Width="700" 
+       Title="برنامج شؤون الموظفين  " Height="500" Width="700" 
         WindowStartupLocation="CenterScreen" WindowState="Maximized" 
         FlowDirection="RightToLeft" 
         Background="#F5F5DD"
@@ -124,8 +124,37 @@
 
             </RibbonTab>
 
+            <RibbonTab x:Name="tabEmployees" Header="الموظفين" FontWeight="Normal"   IsSelected="True" Background="AliceBlue" >
+                <RibbonGroup Header="بيانات الموظفين" >
+
+                    <RibbonGroup.GroupSizeDefinitions>
+                        <RibbonGroupSizeDefinition>
+                        </RibbonGroupSizeDefinition>
+                    </RibbonGroup.GroupSizeDefinitions>
 
 
+                    <RibbonButton Name="rbEmployee" 
+                                  MinWidth="100"  
+                                  Label="كرت الموظف"
+                                  LargeImageSource="Images/Users.png"  
+                                   Tag="frmEmployee"
+                                  Margin="0 0 0 0"
+                                  CommandParameter ="كرت الموظف"
+                                  Content="Images/Users.png"  
+                                  Click="rbEmployee_Click" Height="66"  
+                                  >
+
+                        <RibbonButton.BorderBrush>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFC1ECF5" Offset="0"/>
+                                <GradientStop Color="#FF1753D3" Offset="1"/>
+                            </LinearGradientBrush>
+                        </RibbonButton.BorderBrush>
+
+                    </RibbonButton>
+                </RibbonGroup>
+             </RibbonTab>
+                        
         </Ribbon>
 
     </Grid>

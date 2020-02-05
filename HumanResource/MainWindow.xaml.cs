@@ -227,5 +227,10 @@ namespace HumanResource
         {
             new Files.frmChangePassword().Show();
         }
+
+        private void rbEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            new Employees.frmEmployee().ShowDialog();
+        }
     }
 }
