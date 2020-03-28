@@ -133,7 +133,7 @@
 
             </RibbonTab>
 
-            <RibbonTab x:Name="tabEmployees" Header="الموظفين" FontWeight="Normal"    Background="AliceBlue" >
+            <RibbonTab x:Name="tabEmployees" Header="الموظفين" FontWeight="Normal"    Background="AliceBlue" IsSelected="True">
                 <RibbonGroup Header="بيانات الموظفين" >
 
                     <RibbonGroup.GroupSizeDefinitions>

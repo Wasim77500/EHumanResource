@@ -78,6 +78,12 @@
     <Compile Include="Employees\frmEmpFinicialInfo.xaml.cs">
       <DependentUpon>frmEmpFinicialInfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Employees\frmZakahSheet.xaml.cs">
+      <DependentUpon>frmZakahSheet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\frmZakah.xaml.cs">
+      <DependentUpon>frmZakah.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Employees\frmPartenerSheet.xaml.cs">
       <DependentUpon>frmPartenerSheet.xaml</DependentUpon>
     </Compile>
@@ -136,6 +142,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Employees\frmEmpFinicialInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Employees\frmZakahSheet.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Employees\frmZakah.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
