@@ -22,7 +22,9 @@
         <Ribbon x:Name="RibbonWin" 
                 FontFamily="Times New Roman"
                 FontSize="18"  Grid.Row="0" 
-                FontWeight="Bold"  Background="#e7e7c7">
+                FontWeight="Bold"  Background="#e7e7c7"
+                
+                >
             <Ribbon.ApplicationMenu >
                 <RibbonApplicationMenu Width="0">
 
@@ -31,23 +33,21 @@
 
 
             <RibbonTab x:Name="tabFile" Header="مـلـف" FontWeight="Normal"   IsSelected="True" Background="AliceBlue" >
-                <RibbonGroup Header="إعدادات عامة" >
+                <RibbonGroup Margin="0,1,0,0"  >
 
-                    <RibbonGroup.GroupSizeDefinitions>
-                        <RibbonGroupSizeDefinition>
-                        </RibbonGroupSizeDefinition>
-                    </RibbonGroup.GroupSizeDefinitions>
+                   
 
 
                     <RibbonButton Name="rbAddUser" 
                                   MinWidth="100"  
+                                
                                   Label="مستخدمي النظام"
                                   LargeImageSource="Images/Users.png"  
                                    Tag="frmUsers"
                                   Margin="0 0 0 0"
                                   CommandParameter ="مستخدمي النظام"
                                   Content="Images/Users.png"  
-                                  Click="rbAddUser_Click" Height="66"  
+                                  Click="rbAddUser_Click"   
                                   >
 
                         <RibbonButton.BorderBrush>
@@ -61,6 +61,7 @@
 
                     <RibbonButton Name="rbDefineTemplet" 
                                   MinWidth="100"  
+                                 
                                   Label="تعريف النماذج" 
                                   LargeImageSource="Images/DefineTempl.png"
                                   Margin="5 0 0 0" 
@@ -79,6 +80,7 @@
 
                     <RibbonButton Name="rbDefineForms"  
                                   MinWidth="100"  
+                                  
                                   Label="إدارة النماذج" 
                                   LargeImageSource="Images/ManageTempl.png" 
                                   Margin="5 0 0 0"
@@ -97,6 +99,7 @@
 
                     <RibbonButton Name="rbChangePassword" 
                                   MinWidth="100"  
+                                  
                                   Label="تغيير كلمة السر" 
                                   LargeImageSource="Images/Password.png" 
                                   Margin="5 0 0 0"
@@ -110,7 +113,13 @@
                             </LinearGradientBrush>
                         </RibbonButton.BorderBrush>
                     </RibbonButton>
-                    <RibbonButton  Name="rbLogout" MinWidth="100"   Label="تسجيل الخروج" LargeImageSource="Images/Logout.png" Margin="5 0 0 0" Click="rbLogout_Click">
+                    <RibbonButton  Name="rbLogout"
+                                   MinWidth="100" 
+                                  
+                                   Label="تسجيل الخروج"
+                                   LargeImageSource="Images/Logout.png"
+                                   Margin="5 0 0 0" 
+                                   Click="rbLogout_Click">
                         <RibbonButton.BorderBrush>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                 <GradientStop Color="#FFC1ECF5" Offset="0"/>
@@ -124,7 +133,7 @@
 
             </RibbonTab>
 
-            <RibbonTab x:Name="tabEmployees" Header="الموظفين" FontWeight="Normal"   IsSelected="True" Background="AliceBlue" >
+            <RibbonTab x:Name="tabEmployees" Header="الموظفين" FontWeight="Normal"    Background="AliceBlue" >
                 <RibbonGroup Header="بيانات الموظفين" >
 
                     <RibbonGroup.GroupSizeDefinitions>
@@ -135,13 +144,14 @@
 
                     <RibbonButton Name="rbEmployee" 
                                   MinWidth="100"  
+                                 
                                   Label="كرت الموظف"
                                   LargeImageSource="Images/Users.png"  
                                    Tag="frmEmployee"
                                   Margin="0 0 0 0"
                                   CommandParameter ="كرت الموظف"
                                   Content="Images/Users.png"  
-                                  Click="rbEmployee_Click" Height="66"  
+                                  Click="rbEmployee_Click"  
                                   >
 
                         <RibbonButton.BorderBrush>

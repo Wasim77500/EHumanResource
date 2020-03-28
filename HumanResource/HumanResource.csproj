@@ -78,6 +78,12 @@
     <Compile Include="Employees\frmEmpFinicialInfo.xaml.cs">
       <DependentUpon>frmEmpFinicialInfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Employees\frmPartenerSheet.xaml.cs">
+      <DependentUpon>frmPartenerSheet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\frmPartnerDetails.xaml.cs">
+      <DependentUpon>frmPartnerDetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Employees\frmPersonalAddressInfo.xaml.cs">
       <DependentUpon>frmPersonalAddressInfo.xaml</DependentUpon>
     </Compile>
@@ -86,6 +92,9 @@
     </Compile>
     <Compile Include="Employees\frmNotYamani.xaml.cs">
       <DependentUpon>frmNotYamani.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\frmParteners.xaml.cs">
+      <DependentUpon>frmParteners.xaml</DependentUpon>
     </Compile>
     <Compile Include="Files\frmFindUser.xaml.cs">
       <DependentUpon>frmFindUser.xaml</DependentUpon>
@@ -130,6 +139,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Employees\frmPartenerSheet.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Employees\frmPartnerDetails.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Employees\frmPersonalAddressInfo.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -139,6 +156,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Employees\frmNotYamani.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Employees\frmParteners.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -1,0 +1,272 @@
+﻿<Window x:Class="HumanResource.Employees.frmPartnerDetails"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HumanResource"
+          xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"  AllowsTransparency="True"
+        WindowStyle="None"
+        Background="#F5F5DD"
+        Title="تعديل كشف المقررات"
+        Height="500" Width="550" 
+        BorderBrush="#0b353e" 
+        BorderThickness="3,0,3,3" 
+        WindowStartupLocation="CenterScreen"  
+        FlowDirection="RightToLeft">
+    <StackPanel>
+        <Grid Height="30" MouseDown="Grid_MouseDown" Background="#0b353e">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="1*"/>
+
+
+            </Grid.ColumnDefinitions>
+            <Image Source="../Images/Logo.png" Width="24" Grid.Column="0" MouseDown="Image_MouseDown_1">
+
+
+            </Image>
+
+            <TextBlock x:Name="txtTitel"  Text="تعديل كشف المقررات" Grid.Column="1" TextAlignment="Center"  Foreground="#C46210" HorizontalAlignment="Stretch" VerticalAlignment="Center"  FontWeight="Bold" FontFamily="Arial" FontSize="16"  />
+
+
+
+            <Image Source="../Images/Delete.png" Width="24" Grid.Column="2"  Cursor="Hand" MouseDown="Image_MouseDown"></Image>
+        </Grid>
+
+        <StackPanel Orientation="Horizontal" 
+                            Margin="0 10 0 5" 
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            >
+
+            <TextBlock Style="{StaticResource myLable}"
+                               
+                     Margin="10 0 0 0"
+                               Width="85" 
+                       Text="التاريخ"
+                       FontWeight="Bold"
+                       VerticalAlignment="Center"
+                       />
+            <xctk:DoubleUpDown    
+                FormatString="N0" 
+                FontWeight="Normal"  
+                Name="nmbMonth" 
+                TabIndex="30" 
+               TextAlignment="Left"
+                Value="1" 
+                Height="24"  
+                Width="50"  
+                Minimum="0"  
+                Maximum="12"
+                DefaultValue="1" 
+             />
+            <xctk:DoubleUpDown    
+                
+                FontWeight="Normal"  
+                Name="nmbYear" 
+                TabIndex="30" 
+             
+              TextAlignment="Left"
+                Value="2020" 
+                Height="24"  
+                Width="150"  
+                Minimum="2020"  
+                Maximum="2050"
+                Text="0"
+                DefaultValue="2020" 
+             />
+
+
+
+
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" 
+                            Margin="0 0 0 5" 
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            >
+
+            <TextBlock Style="{StaticResource myLable}"
+                               
+                     Margin="10 0 0 0"
+                               Width="85" 
+                       Text="اسم الشريك"
+                       FontWeight="Bold"
+                       VerticalAlignment="Center"
+                       />
+            <ComboBox Name="lstPARTNER_NAME"
+                             Width="200"
+                             Height="24"
+                              IsEditable="True"
+                              IsTextSearchEnabled="True"
+                              SelectionChanged="lstPARTNER_NAME_SelectionChanged"
+                              LostFocus="lstPARTNER_NAME_LostFocus"
+                              
+                              
+                     />
+          
+           
+           
+
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" 
+                            Margin="0 0 0 5" 
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            >
+
+            <TextBlock Style="{StaticResource myLable}"
+                               
+                     Margin="10 0 0 0"
+                               Width="85" 
+                       Text="مبلغ المقرر"
+                       FontWeight="Bold"
+                       VerticalAlignment="Center"
+                       />
+            <xctk:DoubleUpDown    
+                FormatString="N0" 
+                FontWeight="Normal"  
+                Name="nmbSALARY" 
+                TabIndex="30" 
+                FlowDirection="RightToLeft"   
+                Value="0" 
+                Height="24"  
+                Width="200"  
+                Minimum="0"  
+                DefaultValue="0" 
+                IsEnabled="False"
+             />
+
+           
+
+
+
+        </StackPanel>
+
+        <GroupBox Header="الاستقطاعات" 
+                  
+                  Style="{StaticResource myGroupBox}">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" 
+                            Margin="0 0 0 5" 
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            >
+                    <TextBlock Style="{StaticResource myLable}"
+                               
+                             Margin="10 0 0 0"
+                               Width="100" 
+                             Text="الخصم"   
+                            />
+                    <ComboBox Name="lstDeductName"
+                             Width="140"
+                             Height="24"
+                            />
+
+                    <TextBlock Style="{StaticResource myLable}"                              
+                            Margin="10 0 10 0"   Width="100" 
+                             Text="المبلغ"   
+                             />
+
+                    <xctk:DoubleUpDown  
+                        FormatString="N0"
+                        FontWeight="Normal"  
+                        Name="nmbPrice" 
+                        TabIndex="30" 
+                        FlowDirection="RightToLeft"   
+                        Value="0" 
+                        Height="24"  
+                        Width="130
+" 
+                        Minimum="0" 
+                        DefaultValue="0"/>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" 
+                            Margin="0 0 0 5" 
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            >
+                    <TextBlock Style="{StaticResource myLable}"
+                               
+                             Margin="10 0 0 0"
+                               Width="100" 
+                             Text="الحساب"   
+                            />
+                    <TextBox Name="txtAccno"
+                             Width="140"
+                             Height="24"
+                            />
+
+                    <TextBlock Style="{StaticResource myLable}"                              
+                            Margin="10 0 10 0"   Width="100" 
+                             Text="المبلغ على الحساب"   
+                             />
+
+                    <TextBox Name="txtAccPrice"
+                             Width="100"
+                             Height="24"
+                            />
+
+                    <Button Name="btnAdd" 
+                            Style="{StaticResource SmallBut}" 
+                            VerticalAlignment="Center" 
+                            HorizontalAlignment="Center"
+                            Width="25"
+                            Margin="5 0 0 0" 
+                            Click="btnAdd_Click">
+
+                        <Image Source="../Images/Add_h.png"
+                               Width="15" />
+
+                    </Button>
+
+                </StackPanel>
+
+
+
+            </StackPanel>
+
+
+
+        </GroupBox>
+
+        <DataGrid Style="{StaticResource myGrid}" 
+                  x:Name="dgvDeductions" 
+                  ColumnHeaderStyle="{StaticResource HeaderStyle}" 
+                  IsReadOnly="True"   
+                  Height="284"    >
+
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="clmSwid" Header="رقم التصنيف" Binding="{Binding clmSwid}" MaxWidth="0" Width="0" />
+
+
+
+                <DataGridTextColumn x:Name="clmFieldType" Header="الخصم" Binding="{Binding clmFieldType}" Width="120" />
+                <DataGridTextColumn x:Name="clmFieldNameAr" Header="المبلغ" Binding="{Binding clmFieldNameAr}" Width="100" />
+                <DataGridTextColumn x:Name="clmFieldNameEn" Header="رقم الحساب" Binding="{Binding clmFieldNameEn}" Width="110" />
+                <DataGridTextColumn x:Name="clmNote" Header="المبلغ على الحساب" Binding="{Binding clmNote}" Width="150" />
+               
+                <DataGridTemplateColumn Header="حذف" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Name="btnDelete" Style="{StaticResource myButton}" Width="52" Height="22" Click="btnDelete_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="../Images/Delete16.png" Width="15" Margin="0 0 5 0"/>
+                                    <TextBlock Text="حذف" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+
+    </StackPanel>
+   
+</Window>

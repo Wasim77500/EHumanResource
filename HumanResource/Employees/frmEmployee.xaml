@@ -58,6 +58,7 @@
                              Width="200"
                              Height="24"
                               IsEditable="True"
+                              IsTextSearchEnabled="True"
                               SelectionChanged="cbEMPNAME_SelectionChanged"
                               LostFocus="cbEMPNAME_LostFocus"
                               
